@@ -2,36 +2,35 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Portal } from 'react-portal';
 
-var styles = {"overlay":"_styles-module__overlay__3qw0K","overlayBackground":"_styles-module__overlayBackground__OK5K3","modal":"_styles-module__modal__Xt-75"};
+var styles = {"overlay":"_3qw0K","overlayBackground":"_OK5K3","modal":"_Xt-75"};
 
-const Overlay = ({
-  shouldOpen,
-  classNameOverlay,
-  children
-}) => {
+var Overlay = function Overlay(_ref) {
+  var shouldOpen = _ref.shouldOpen,
+      classNameOverlay = _ref.classNameOverlay,
+      children = _ref.children;
   return shouldOpen && /*#__PURE__*/React.createElement(Portal, null, /*#__PURE__*/React.createElement("div", {
-    className: `${styles.overlayBackground} ${classNameOverlay} ${styles.overlay}`
+    className: styles.overlayBackground + " " + classNameOverlay + " " + styles.overlay
   }, children));
 };
 Overlay.propTypes = {
   shouldOpen: PropTypes.bool.isRequired,
   classNameOverlay: PropTypes.string
 };
-const Modal = ({
-  shouldOpen,
-  modalTitle,
-  modalBody,
-  buttonOkTitle,
-  buttonCancelTitle,
-  onOkHandler,
-  onCancelHandler,
-  className
-}) => {
-  const handleOKClick = () => {
+var Modal = function Modal(_ref2) {
+  var shouldOpen = _ref2.shouldOpen,
+      modalTitle = _ref2.modalTitle,
+      modalBody = _ref2.modalBody,
+      buttonOkTitle = _ref2.buttonOkTitle,
+      buttonCancelTitle = _ref2.buttonCancelTitle,
+      onOkHandler = _ref2.onOkHandler,
+      onCancelHandler = _ref2.onCancelHandler,
+      className = _ref2.className;
+
+  var handleOKClick = function handleOKClick() {
     onOkHandler && onOkHandler();
   };
 
-  const handleCancelClick = () => {
+  var handleCancelClick = function handleCancelClick() {
     onCancelHandler && onCancelHandler();
   };
 
@@ -39,7 +38,7 @@ const Modal = ({
     shouldOpen: shouldOpen || false,
     classNameOverlay: className
   }, /*#__PURE__*/React.createElement("div", {
-    className: `${styles.modal} modal-container`
+    className: styles.modal + " modal-container"
   }, modalTitle && /*#__PURE__*/React.createElement("div", {
     className: "modal-title"
   }, /*#__PURE__*/React.createElement("div", {
