@@ -2,43 +2,44 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Portal } from 'react-portal';
 
-var styles = {"overlay":"_3qw0K","overlayBackground":"_OK5K3","modal":"_Xt-75"};
+var styles = {"overlay":"_styles-module__overlay__3qw0K","overlayBackground":"_styles-module__overlayBackground__OK5K3","modal":"_styles-module__modal__Xt-75"};
 
-var Overlay = function Overlay(_ref) {
-  var shouldOpen = _ref.shouldOpen,
-      classNameOverlay = _ref.classNameOverlay,
-      children = _ref.children;
+const Overlay = ({
+  shouldOpen,
+  classNameOverlay,
+  children
+}) => {
   return shouldOpen && /*#__PURE__*/React.createElement(Portal, null, /*#__PURE__*/React.createElement("div", {
-    className: styles.overlayBackground + " " + classNameOverlay + " " + styles.overlay
+    className: `${styles.overlayBackground} ${classNameOverlay} ${styles.overlay}`
   }, children));
 };
 Overlay.propTypes = {
   shouldOpen: PropTypes.bool.isRequired,
   classNameOverlay: PropTypes.string
 };
-var Modal = function Modal(_ref2) {
-  var shouldOpen = _ref2.shouldOpen,
-      modalTitle = _ref2.modalTitle,
-      modalBody = _ref2.modalBody,
-      buttonOkTitle = _ref2.buttonOkTitle,
-      buttonCancelTitle = _ref2.buttonCancelTitle,
-      onOkHandler = _ref2.onOkHandler,
-      onCancelHandler = _ref2.onCancelHandler,
-      className = _ref2.className;
-
-  var handleOKClick = function handleOKClick() {
-    onOkHandler && onOkHandler();
+const Modal = ({
+  shouldOpen,
+  modalTitle,
+  modalBody,
+  buttonOneTitle,
+  buttonTwoTitle,
+  onButtonOneHandler,
+  onButtonTwoHandler,
+  className
+}) => {
+  const handleButtonOneClick = () => {
+    onButtonOneHandler && onButtonOneHandler();
   };
 
-  var handleCancelClick = function handleCancelClick() {
-    onCancelHandler && onCancelHandler();
+  const handleButtonTwoClick = () => {
+    onButtonTwoHandler && onButtonTwoHandler();
   };
 
   return /*#__PURE__*/React.createElement(Overlay, {
     shouldOpen: shouldOpen || false,
     classNameOverlay: className
   }, /*#__PURE__*/React.createElement("div", {
-    className: styles.modal + " modal-container"
+    className: `${styles.modal} modal-container`
   }, modalTitle && /*#__PURE__*/React.createElement("div", {
     className: "modal-title"
   }, /*#__PURE__*/React.createElement("div", {
@@ -54,19 +55,19 @@ var Modal = function Modal(_ref2) {
   })), /*#__PURE__*/React.createElement("div", {
     className: "modal-actions"
   }, /*#__PURE__*/React.createElement("button", {
-    onClick: handleOKClick
-  }, buttonOkTitle || 'Ok'), /*#__PURE__*/React.createElement("button", {
-    onClick: handleCancelClick
-  }, buttonCancelTitle || 'Cancel'))));
+    onClick: handleButtonOneClick
+  }, buttonOneTitle || 'Ok'), /*#__PURE__*/React.createElement("button", {
+    onClick: handleButtonTwoClick
+  }, buttonTwoTitle || 'Cancel'))));
 };
 Modal.propTypes = {
   shouldOpen: PropTypes.bool.isRequired,
   modalTitle: PropTypes.string,
   modalBody: PropTypes.string.isRequired,
-  buttonOkTitle: PropTypes.string,
-  buttonCancelTitle: PropTypes.string,
-  onOkHandler: PropTypes.func,
-  onCancelHandler: PropTypes.func,
+  buttonOneTitle: PropTypes.string,
+  buttonTwoTitle: PropTypes.string,
+  onButtonOneHandler: PropTypes.func,
+  onButtonTwoHandler: PropTypes.func,
   className: PropTypes.string
 };
 

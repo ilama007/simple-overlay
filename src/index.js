@@ -26,18 +26,18 @@ export const Modal = ({
   shouldOpen,
   modalTitle,
   modalBody,
-  buttonOkTitle,
-  buttonCancelTitle,
-  onOkHandler,
-  onCancelHandler,
+  buttonOneTitle,
+  buttonTwoTitle,
+  onButtonOneHandler,
+  onButtonTwoHandler,
   className
 }) => {
-  const handleOKClick = () => {
-    onOkHandler && onOkHandler();
+  const handleButtonOneClick = () => {
+    onButtonOneHandler && onButtonOneHandler();
   };
 
-  const handleCancelClick = () => {
-    onCancelHandler && onCancelHandler();
+  const handleButtonTwoClick = () => {
+    onButtonTwoHandler && onButtonTwoHandler();
   };
   return (
     <Overlay shouldOpen={shouldOpen || false} classNameOverlay={className}>
@@ -51,9 +51,11 @@ export const Modal = ({
           <div dangerouslySetInnerHTML={{ __html: modalBody }} />
         </div>
         <div className='modal-actions'>
-          <button onClick={handleOKClick}>{buttonOkTitle || 'Ok'}</button>
-          <button onClick={handleCancelClick}>
-            {buttonCancelTitle || 'Cancel'}
+          <button onClick={handleButtonOneClick}>
+            {buttonOneTitle || 'Ok'}
+          </button>
+          <button onClick={handleButtonTwoClick}>
+            {buttonTwoTitle || 'Cancel'}
           </button>
         </div>
       </div>
@@ -65,9 +67,9 @@ Modal.propTypes = {
   shouldOpen: PropTypes.bool.isRequired,
   modalTitle: PropTypes.string,
   modalBody: PropTypes.string.isRequired,
-  buttonOkTitle: PropTypes.string,
-  buttonCancelTitle: PropTypes.string,
-  onOkHandler: PropTypes.func,
-  onCancelHandler: PropTypes.func,
+  buttonOneTitle: PropTypes.string,
+  buttonTwoTitle: PropTypes.string,
+  onButtonOneHandler: PropTypes.func,
+  onButtonTwoHandler: PropTypes.func,
   className: PropTypes.string
 };

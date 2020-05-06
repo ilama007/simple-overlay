@@ -4,7 +4,7 @@ var React = _interopDefault(require('react'));
 var PropTypes = _interopDefault(require('prop-types'));
 var reactPortal = require('react-portal');
 
-var styles = {"overlay":"_3qw0K","overlayBackground":"_OK5K3","modal":"_Xt-75"};
+var styles = {"overlay":"_styles-module__overlay__3qw0K","overlayBackground":"_styles-module__overlayBackground__OK5K3","modal":"_styles-module__modal__Xt-75"};
 
 var Overlay = function Overlay(_ref) {
   var shouldOpen = _ref.shouldOpen,
@@ -22,18 +22,18 @@ var Modal = function Modal(_ref2) {
   var shouldOpen = _ref2.shouldOpen,
       modalTitle = _ref2.modalTitle,
       modalBody = _ref2.modalBody,
-      buttonOkTitle = _ref2.buttonOkTitle,
-      buttonCancelTitle = _ref2.buttonCancelTitle,
-      onOkHandler = _ref2.onOkHandler,
-      onCancelHandler = _ref2.onCancelHandler,
+      buttonOneTitle = _ref2.buttonOneTitle,
+      buttonTwoTitle = _ref2.buttonTwoTitle,
+      onButtonOneHandler = _ref2.onButtonOneHandler,
+      onButtonTwoHandler = _ref2.onButtonTwoHandler,
       className = _ref2.className;
 
-  var handleOKClick = function handleOKClick() {
-    onOkHandler && onOkHandler();
+  var handleButtonOneClick = function handleButtonOneClick() {
+    onButtonOneHandler && onButtonOneHandler();
   };
 
-  var handleCancelClick = function handleCancelClick() {
-    onCancelHandler && onCancelHandler();
+  var handleButtonTwoClick = function handleButtonTwoClick() {
+    onButtonTwoHandler && onButtonTwoHandler();
   };
 
   return /*#__PURE__*/React.createElement(Overlay, {
@@ -56,19 +56,19 @@ var Modal = function Modal(_ref2) {
   })), /*#__PURE__*/React.createElement("div", {
     className: "modal-actions"
   }, /*#__PURE__*/React.createElement("button", {
-    onClick: handleOKClick
-  }, buttonOkTitle || 'Ok'), /*#__PURE__*/React.createElement("button", {
-    onClick: handleCancelClick
-  }, buttonCancelTitle || 'Cancel'))));
+    onClick: handleButtonOneClick
+  }, buttonOneTitle || 'Ok'), /*#__PURE__*/React.createElement("button", {
+    onClick: handleButtonTwoClick
+  }, buttonTwoTitle || 'Cancel'))));
 };
 Modal.propTypes = {
   shouldOpen: PropTypes.bool.isRequired,
   modalTitle: PropTypes.string,
   modalBody: PropTypes.string.isRequired,
-  buttonOkTitle: PropTypes.string,
-  buttonCancelTitle: PropTypes.string,
-  onOkHandler: PropTypes.func,
-  onCancelHandler: PropTypes.func,
+  buttonOneTitle: PropTypes.string,
+  buttonTwoTitle: PropTypes.string,
+  onButtonOneHandler: PropTypes.func,
+  onButtonTwoHandler: PropTypes.func,
   className: PropTypes.string
 };
 

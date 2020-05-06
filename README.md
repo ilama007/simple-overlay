@@ -22,6 +22,7 @@ const App = () => {
 
   const onCancelClick = () => {
     setOpenModal(false);
+    console.log('Cancel Button Clicked!');
   };
   const onOkClick = () => {
     setOpenModal(false);
@@ -33,10 +34,10 @@ const App = () => {
     shouldOpen: true/false (required)
     modalTitle: htmlString (optional)
     modalBody: htmlString (required)
-    buttonOkTitle: string (optional)
-    buttonCancelTitle: string (optional)
-    onOkHandler: function (optional)
-    onCancelHandler: function (optional)
+    buttonOneTitle: string (optional)
+    buttonTwoTitle: string (optional)
+    onButtonOneHandler: function (optional)
+    onButtonTwoHandler: function (optional)
     className: string (optional)
 */
   return (
@@ -44,13 +45,13 @@ const App = () => {
       <button onClick={() => setOpenModal(true)}>Open Modal</button>
       <Modal
         shouldOpen={openModal}
-        onCancelHandler={onCancelClick}
-        onOkHandler={onOkClick}
+        onButtonTwoHandler={onCancelClick}
+        onButtonOneHandler={onOkClick}
         modalTitle='<h2>Modal Title<h2>'
         modalBody='<h3>This is the modal body</h3>'
         className='my-modal'
-        buttonOkTitle='Yes'
-        buttonCancelTitle='Nope'
+        buttonOneTitle='Yes'
+        buttonTwoTitle='Nope'
       >
         <p>Test</p>
       </Modal>
