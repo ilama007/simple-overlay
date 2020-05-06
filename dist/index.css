@@ -1,4 +1,4 @@
-._styles-module__overlay__3qw0K {
+._3qw0K {
   position: fixed !important;
   top: 0 !important;
   left: 0 !important;
@@ -7,13 +7,13 @@
   z-index: 5; /*max*/
 }
 
-._styles-module__overlayBackground__OK5K3 {
+._OK5K3 {
   /*background: rgba(0, 0, 0, 0.3);*/
   background-image: url(images/black-translucent-bg.png);
   background-repeat: repeat;
 }
 
-._styles-module__modal__Xt-75 {
+._Xt-75 {
   background: white;
   border-radius: 5px;
   padding: 20px;

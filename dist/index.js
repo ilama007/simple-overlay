@@ -4,7 +4,7 @@ var React = _interopDefault(require('react'));
 var PropTypes = _interopDefault(require('prop-types'));
 var reactPortal = require('react-portal');
 
-var styles = {"overlay":"_styles-module__overlay__3qw0K","overlayBackground":"_styles-module__overlayBackground__OK5K3","modal":"_styles-module__modal__Xt-75"};
+var styles = {"overlay":"_3qw0K","overlayBackground":"_OK5K3","modal":"_Xt-75"};
 
 var Overlay = function Overlay(_ref) {
   var shouldOpen = _ref.shouldOpen,
